@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>搭建自己的hexo个人博客 | 未来~可期</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言通过本文，可以在github搭建专属的个人博客，不用想传统博客那样搭建前端和后台进行管理">
+  <meta name="description" content="前言 通过本文，可以在github搭建专属的个人博客，不用像传统博客那样搭建前端和后台进行管理">
 <meta name="keywords" content="杂技">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建自己的hexo个人博客">
 <meta property="og:url" content="http://yoursite.com/2019/09/08/搭建自己的hexo个人博客/index.html">
 <meta property="og:site_name" content="未来~可期">
-<meta property="og:description" content="前言通过本文，可以在github搭建专属的个人博客，不用想传统博客那样搭建前端和后台进行管理">
+<meta property="og:description" content="前言 通过本文，可以在github搭建专属的个人博客，不用像传统博客那样搭建前端和后台进行管理">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/09/08/搭建自己的hexo个人博客/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/08/搭建自己的hexo个人博客/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/08/搭建自己的hexo个人博客/3.png">
-<meta property="og:updated_time" content="2019-09-09T05:59:50.826Z">
+<meta property="og:updated_time" content="2019-09-09T06:15:42.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建自己的hexo个人博客">
-<meta name="twitter:description" content="前言通过本文，可以在github搭建专属的个人博客，不用想传统博客那样搭建前端和后台进行管理">
+<meta name="twitter:description" content="前言 通过本文，可以在github搭建专属的个人博客，不用像传统博客那样搭建前端和后台进行管理">
 <meta name="twitter:image" content="http://yoursite.com/2019/09/08/搭建自己的hexo个人博客/1.png">
   
     <link rel="alternative" href="/atom.xml" title="未来~可期" type="application/atom+xml">
@@ -63,8 +63,6 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/tags/随笔/">随笔</a></li>
 	        
 				<li><a href="/archives/index.html">归档</a></li>
 	        
@@ -120,8 +118,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -135,14 +131,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/archives/index.html">归档</a></li>
+					<li style="width: 50%"><a href="/archives/index.html">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -177,17 +171,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>通过本文，可以在github搭建专属的个人博客，不用想传统博客那样搭建前端和后台进行管理</p>
+        <br>
+
+<p><strong>前言</strong></p>
+<p>通过本文，可以在github搭建专属的个人博客，不用像传统博客那样搭建前端和后台进行管理</p>
 <a id="more"></a>
 
-<h3 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h3><h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><p><strong>1.Node.js （window）</strong></p>
+<br>
+
+<h3 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h3><p>方案：Node.js + Git + hexo</p>
+<h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><p><strong>1.Node.js （window）</strong></p>
 <p>​    1）在官网（<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">https://nodejs.org/zh-cn/</a>）下载安装包，博主使用的是长期支持版</p>
 <p>​    2）直接运行 .msi 安装包</p>
 <p>​    3）选择好 NodeJS 的安装目录后一路 next ，安装完毕</p>
 <p>​    4）打开cmd，输入 path ，查看是否包括对应的 NodeJS 的安装目录（可能比较多，复制出来搜索一下）</p>
 <p>​    5）在cmd中检测 NodeJS 版本（node -version），或者在不同路径下测试能否正常使用 node</p>
+<br>
+
 <p><strong>2.Git（window）</strong></p>
 <p>git下载的步骤比较麻烦，详情请移步<a href="https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496</a></p>
+<br>
+
 <p><strong>3.Hexo</strong></p>
 <p>​    1）新建一个名称为Hexo的目录</p>
 <p>​    2）进入Hexo目录，右键打开 Git Bash Here，输入</p>
@@ -203,6 +207,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 
 <p>​    6）在浏览器中访问：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 即可看到博客示例</p>
+<br>
+
 <h4 id="部署个人博客"><a href="#部署个人博客" class="headerlink" title="部署个人博客"></a>部署个人博客</h4><p>方案：hexo + github + 域名</p>
 <p><strong>1.github</strong></p>
 <p>​    1）注册github账号</p>
@@ -217,6 +223,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>​    6）等待一会，便可以在浏览器中输入 &lt;github账号名&gt;.github.io 访问自己的个人博客啦</p>
+<br>
+
 <p><strong>2.域名</strong></p>
 <p>博主使用的是阿里云的域名</p>
 <p>​    1）购买好域名后，进入域名管理界面，点击解析</p>
@@ -229,8 +237,10 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p>​    5）在浏览器中输入购买的域名，就可以得到访问到个人博客啦！</p>
+<br>
+
 <h3 id="主题美化"><a href="#主题美化" class="headerlink" title="主题美化"></a>主题美化</h3><p>博主使用的是yilia主题</p>
-<h5 id="1-主题安装"><a href="#1-主题安装" class="headerlink" title="1.主题安装"></a>1.主题安装</h5><p>​    1）在<folder>目录下使用Git Bash Here，输入</folder></p>
+<h5 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h5><p>​    1）在<folder>目录下使用Git Bash Here，输入</folder></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
 
 <p>​    2）打开<folder>目录下的_config.yml，修改主题theme属性为 yilia。</folder></p>
@@ -240,8 +250,11 @@
 <p>​    4）部署到github上，在<folder>目录下使用Git Bash Here，输入</folder></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者直接输入 hexo d -g</span></span><br></pre></td></tr></table></figure>
 
+<br>
+
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo clean # 清理之前生成的内容，即public文件</span><br><span class="line">hexo g # 生成静态文件</span><br><span class="line">hexo d # 部署</span><br><span class="line">hexo s # 启动本地服务，可以通过http://localhost:4000查看</span><br><span class="line">hexo s --debug # 使用debug模式启动服务</span><br><span class="line">hexo d -g # 等同于hexo g和hexo d两步</span><br><span class="line">hexo new &lt;文章名&gt; # 在&lt;folder&gt;/source/_post目录下生成&lt;文章名&gt;.md文件</span><br></pre></td></tr></table></figure>
 
+<p><br><br></p>
 <p>未完待续~</p>
 
       
@@ -376,7 +389,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#博客搭建"><span class="toc-number">2.</span> <span class="toc-text">博客搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#环境"><span class="toc-number">2.1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部署个人博客"><span class="toc-number">2.2.</span> <span class="toc-text">部署个人博客</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主题美化"><span class="toc-number">3.</span> <span class="toc-text">主题美化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-主题安装"><span class="toc-number">3.0.1.</span> <span class="toc-text">1.主题安装</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-number">4.</span> <span class="toc-text">常用命令</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#博客搭建"><span class="toc-number">1.</span> <span class="toc-text">博客搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#环境"><span class="toc-number">1.1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部署个人博客"><span class="toc-number">1.2.</span> <span class="toc-text">部署个人博客</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主题美化"><span class="toc-number">2.</span> <span class="toc-text">主题美化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#主题安装"><span class="toc-number">2.0.1.</span> <span class="toc-text">主题安装</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-number">3.</span> <span class="toc-text">常用命令</span></a></li></ol>
                     </div>
                 </span>
             </div>
