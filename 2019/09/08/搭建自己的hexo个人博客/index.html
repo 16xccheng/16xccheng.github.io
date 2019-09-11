@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/08/搭建自己的hexo个人博客/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/08/搭建自己的hexo个人博客/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/08/搭建自己的hexo个人博客/3.png">
-<meta property="og:updated_time" content="2019-09-10T03:29:29.219Z">
+<meta property="og:updated_time" content="2019-09-11T06:51:34.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建自己的hexo个人博客">
 <meta name="twitter:description" content="前言 通过本文，可以在github page搭建专属的个人博客，不用像传统博客那样搭建前端和后台进行管理">
@@ -254,7 +254,52 @@
 
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo clean # 清理之前生成的内容，即public文件</span><br><span class="line">hexo g # 生成静态文件</span><br><span class="line">hexo d # 部署</span><br><span class="line">hexo s # 启动本地服务，可以通过http://localhost:4000查看</span><br><span class="line">hexo s --debug # 使用debug模式启动服务</span><br><span class="line">hexo d -g # 等同于hexo g和hexo d两步</span><br><span class="line">hexo new &lt;文章名&gt; # 在&lt;folder&gt;/source/_post目录下生成&lt;文章名&gt;.md文件</span><br></pre></td></tr></table></figure>
 
-<p><br><br></p>
+<br>
+
+<h3 id="一些踩坑（yilia）"><a href="#一些踩坑（yilia）" class="headerlink" title="一些踩坑（yilia）"></a>一些踩坑（yilia）</h3><h4 id="个人博客页面"><a href="#个人博客页面" class="headerlink" title="个人博客页面"></a>个人博客页面</h4><p><strong>1.修改网页名称、作者姓名</strong></p>
+<p>解决方法：到<code>&lt;folder&gt;</code>目录中的<code>_config.yml</code>，找到以下代码并修改</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">未来~可期</span></span><br><span class="line"><span class="attr">subtitle:</span></span><br><span class="line"><span class="attr">description:</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">口是心非</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>2.修改页面图片（头像、二维码等）</strong></p>
+<p>解决方法：到<code>&lt;folder&gt;/theme/yilia/source</code>下创建<code>myImg</code>文件夹，并将图片存放于文件夹中</p>
+<p>之后打开<code>&lt;folder&gt;/theme/yilia/</code>目录下的<code>_config.yml</code>文件，找到以下代码并修改</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 支付宝二维码图片地址</span></span><br><span class="line"><span class="attr">alipay:</span> <span class="string">/myImg/zhifubaopay.jpg</span></span><br><span class="line"><span class="comment"># 微信二维码图片地址</span></span><br><span class="line"><span class="attr">weixin:</span> <span class="string">/myImg/wechatpay.png</span></span><br><span class="line"><span class="comment">#你的头像url</span></span><br><span class="line"><span class="attr">avatar:</span> <span class="string">/myImg/avatar.jpg</span></span><br></pre></td></tr></table></figure>
+
+<p>后续更新到<code>github page</code>就可以看到图片效果啦！</p>
+<br>
+
+<p><strong>3.”所有文章”打开不了</strong></p>
+<p>解决方法：将<code>&lt;folder&gt;</code>目录下的<code>db.json</code>删除，之后按顺序运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>打开<code>localhost:4000</code>便可以使用所有文章啦</p>
+<br>
+
+<p><strong>4.文章内插入图片，更新到github page不显示的问题</strong></p>
+<p>问题分析：这是由于路径出错，使用网络图片并不会出现这种效果</p>
+<p>解决方法：</p>
+<p>1）在<code>&lt;folder&gt;</code>目录下的<code>_config.yml</code>文件，修改<code>post_asset_folder</code>为<code>true</code>，之后每次通过<code>hexo new &lt;article&gt;</code>便会<code>&lt;folder&gt;/source</code>下生成<code>&lt;article&gt;.md</code>和<code>&lt;article&gt;文件夹</code>，文件夹可以用来放置插入文章的图片</p>
+<p>2）在<code>&lt;folder&gt;</code>目录下使用<code>Git Bash Here</code>，执行<code>npm install hexo-asset-image --save</code>，安装一个可以上传本地图片的插件</p>
+<p>3）文章内需要插入图片时，只需要将图片放入<code>&lt;article&gt;文件夹</code>，文章内使用markdown语法插入图片<code>![](img.jpg)</code>即可，图片格式不限，不用加路径</p>
+<p>注：使用该方式插入图片不会在markdown编辑器中显示图片，需要开启<code>hexo server</code>进行本地调试才会出现图片</p>
+<br>
+
+<h3 id="开始写你的第一篇文章"><a href="#开始写你的第一篇文章" class="headerlink" title="开始写你的第一篇文章"></a>开始写你的第一篇文章</h3><h4 id="创建默认文章"><a href="#创建默认文章" class="headerlink" title="创建默认文章"></a>创建默认文章</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">到&lt;folder&gt;目录下使用Git Bash Here，执行hexo new &lt;article&gt;</span></span><br><span class="line">hexo new &lt;article&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="模板内容说明"><a href="#模板内容说明" class="headerlink" title="模板内容说明"></a>模板内容说明</h4><p>创建好的模板有三个条目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title: name  # 文章名称</span><br><span class="line">date: YYYY-MM-DD HH:MM:SS  # 创建事件</span><br><span class="line">tags: 标签  # 单标签样式</span><br><span class="line">#tags:      # 多标签样式，-和标签之间有空格</span><br><span class="line">#- 标签一</span><br><span class="line">#- 标签二</span><br></pre></td></tr></table></figure>
+
+<h4 id="阅读全文截断"><a href="#阅读全文截断" class="headerlink" title="阅读全文截断"></a>阅读全文截断</h4><p>使用<code>&lt;!--more--&gt;</code>进行截断，在主页只显示到截断前一部分，<code>&lt;!--more--&gt;</code>后续的内容不显示</p>
+<h4 id="正文编辑"><a href="#正文编辑" class="headerlink" title="正文编辑"></a>正文编辑</h4><p>同平时编辑<code>.md</code>文件一模一样，博主使用的是<code>Typora编辑器</code></p>
+<p>注：<code>.md</code>文件中的多级标题在部署到<code>github page</code>后会自动加上分割线，另外，空行要使用<code>&lt;br&gt;</code>,编辑器内打空行是无效的</p>
+<h4 id="文章调试"><a href="#文章调试" class="headerlink" title="文章调试"></a>文章调试</h4><p>编辑完毕后，可以使用<code>hexo g</code> 和<code>hexo s</code>进行本地调试。值得一提的是，在开启<code>hexo s</code>后，对应的<code>.md</code>文件发生任何修改都可以在<code>localhost:4000</code>中同时发生改变，即边编写边查看效果（记得保存）</p>
+<h4 id="文章发布"><a href="#文章发布" class="headerlink" title="文章发布"></a>文章发布</h4><p>发布到<code>github page</code>可以使用<code>hexo g</code>和<code>hexo d</code>，或者直接使用<code>hexo d -g</code>，现在就开始欣赏自己编写的博客吧！！！</p>
+<br>
+
+<br>
+
 <p>未完待续~</p>
 
       
@@ -403,7 +448,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#博客搭建"><span class="toc-number">1.</span> <span class="toc-text">博客搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#环境"><span class="toc-number">1.1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部署个人博客"><span class="toc-number">1.2.</span> <span class="toc-text">部署个人博客</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主题美化"><span class="toc-number">2.</span> <span class="toc-text">主题美化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#主题安装"><span class="toc-number">2.0.1.</span> <span class="toc-text">主题安装</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-number">3.</span> <span class="toc-text">常用命令</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#博客搭建"><span class="toc-number">1.</span> <span class="toc-text">博客搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#环境"><span class="toc-number">1.1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部署个人博客"><span class="toc-number">1.2.</span> <span class="toc-text">部署个人博客</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主题美化"><span class="toc-number">2.</span> <span class="toc-text">主题美化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#主题安装"><span class="toc-number">2.0.1.</span> <span class="toc-text">主题安装</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-number">3.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些踩坑（yilia）"><span class="toc-number">4.</span> <span class="toc-text">一些踩坑（yilia）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#个人博客页面"><span class="toc-number">4.1.</span> <span class="toc-text">个人博客页面</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始写你的第一篇文章"><span class="toc-number">5.</span> <span class="toc-text">开始写你的第一篇文章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建默认文章"><span class="toc-number">5.1.</span> <span class="toc-text">创建默认文章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模板内容说明"><span class="toc-number">5.2.</span> <span class="toc-text">模板内容说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#阅读全文截断"><span class="toc-number">5.3.</span> <span class="toc-text">阅读全文截断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正文编辑"><span class="toc-number">5.4.</span> <span class="toc-text">正文编辑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文章调试"><span class="toc-number">5.5.</span> <span class="toc-text">文章调试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文章发布"><span class="toc-number">5.6.</span> <span class="toc-text">文章发布</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -532,6 +577,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">--情感 --随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
