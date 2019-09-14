@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 情感 | 未来~可期</title>
+  <title>java并发（二） | 未来~可期</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="未来~可期">
-<meta property="og:url" content="http://yoursite.com/tags/情感/index.html">
+  <meta name="description" content="前言 读书笔记之《java并发编程的艺术》–volatile、synchronized、原子操作">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java并发（二）">
+<meta property="og:url" content="http://yoursite.com/2019/09/13/java并发（二）/index.html">
 <meta property="og:site_name" content="未来~可期">
+<meta property="og:description" content="前言 读书笔记之《java并发编程的艺术》–volatile、synchronized、原子操作">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/09/13/java并发（二）/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/13/java并发（二）/2.png">
+<meta property="og:updated_time" content="2019-09-14T06:22:51.008Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="未来~可期">
+<meta name="twitter:title" content="java并发（二）">
+<meta name="twitter:description" content="前言 读书笔记之《java并发编程的艺术》–volatile、synchronized、原子操作">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/13/java并发（二）/1.png">
   
     <link rel="alternative" href="/atom.xml" title="未来~可期" type="application/atom+xml">
   
@@ -142,64 +150,304 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java并发（二）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/10/2019-9-10情感路线/" class="archive-article-date">
-  	<time datetime="2019-09-10T15:21:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/10/2019-9-10情感路线/">2019/9/10情感路线</a>
+    <h1 class="article-title" itemprop="name">
+      java并发（二）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/09/13/java并发（二）/" class="archive-article-date">
+  	<time datetime="2019-09-13T06:50:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>前言</strong></p>
+<p>读书笔记之《java并发编程的艺术》–volatile、synchronized、原子操作</p>
+<a id="more"></a>
+
+<h3 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h3><p><strong>相关概念</strong>：</p>
+<p><strong>可见性：</strong>当一个线程修改一个共享变量时，另外一个线程能读到这个修改的值。</p>
+<p><strong>缓存：</strong>为了提高处理速度，处理器不会直接和内存进行通信，而是先将系统内存的数据读到内部缓存后再进行操作，但操作完不知道何时会写到内存。</p>
+<p><strong>缓存一致性：</strong>在多处理器下，为保证各个处理器的缓存是一致的，就会实现缓存一致性协议，每个处理器通过嗅探在总线上传播的数据来检查自己的缓存值是否过期，当处理器发现自己缓存行对应的内存地址被修改，就会将当前处理器的缓存行设置成无效状态，当处理器对这个数据进行修改操作时，会重新从系统内存中吧数据读到处理器缓存里。</p>
+<br>
+
+<p>volatile是轻量级synchronized，在多线程的开发环境中可保证共享变量的“可见性”，另外，使用volatile不会引起线程上下文切换和调度。</p>
+<p>使用volatile修饰变量的情况下，其生成的汇编代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// instance是volatile变量</span></span><br><span class="line">instance = <span class="keyword">new</span> Singleton();  </span><br><span class="line"><span class="comment">// 生成的汇编代码</span></span><br><span class="line"><span class="number">0x01a3de1d</span>: movb $<span class="number">0</span>×<span class="number">0</span>,<span class="number">0</span>×<span class="number">1104800</span>(%esi);<span class="number">0x01a3de24</span>: lock addl $<span class="number">0</span>×<span class="number">0</span>,(%esp);</span><br></pre></td></tr></table></figure>
+
+<p>如上所示，在volatile变量修饰的共享变量进行写操作时会出第二行汇编代码，即后续的<code>lock</code>字段，使用<code>lock</code>字段修饰会引发两件事情</p>
+<p><strong>1）将当前处理器缓存行的数据写回系统内存</strong></p>
+<p>多处理器环境中，lock信号确保在声言该信号期间，处理器可以独占任何共享内存，lock信号一般不锁总线，而是锁缓存，因为总线开销比较大。</p>
+<p>lock会锁定这块内存区域的缓存并写回内存，并使用缓存一致性机制来确保修改的原子性，此操作被称为“缓存锁定”，缓存一致性机制会阻止同时修改由两个以上处理器缓存的内存区域数据。</p>
+<p><strong>2）这个写回内存的操作会使其他CPU（每个CPU可以跑一个线程）里缓存了该内存地址的数据无效</strong></p>
+<p>处理器使用嗅探技术保障它的内部缓存、系统内存和其他处理器的缓存的数据在总线上保持一致。如果通过嗅探一个处理器来检测其他处理器打算写内存地址，而这个地址处于当前共享状态，那么正在嗅探的处理器将使它的缓存行无效，在下次访问相同内存地址时，强制执行缓存行填充。</p>
+<br>
+
+<h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><p><strong>相关概念：</strong></p>
+<p><strong>java对象头：</strong>对象在内存中存储的布局可以分为三块区域：对象头、实例数据、对齐填充。对象头也被称为“Mark Word”，对象头里默认存储对象的HashCode、分代年龄和锁标记位。</p>
+<br>
+
+<p>synchronized被称为重量级锁。在<code>javaSE 1.6</code>中为了减少获得锁和释放锁带来的性能消耗而引入的偏向锁和轻量级锁，以及锁的存储结构和升级过程。</p>
+<br>
+
+<p><strong>实现synchronized实现同步的基础：</strong>java中每一个对象都可以作为锁，具体表现为：</p>
+<p>1）对于普通同步方法，锁时当前实例对象</p>
+<p>2）对于静态同步方法，锁是当前类的Class对象</p>
+<p>3）对于同步方法块，锁是synchronized括号里配置的对象</p>
+<br>
+
+<p><strong>synchronized实现原理：</strong>JVM基于进入和退出Monitor对象来实现方法同步和代码块同步：<br>1）代码块同步是使用<code>monitorenter</code>和<code>monitorexit</code>实现的，在对应代码块前后插入<code>enter</code>和<code>exit</code></p>
+<p>2）方法同步可以使用<code>enter</code>和<code>exit</code>实现，<code>monitorenter</code>指令是在编译后插入到同步代码块的开始位置，<code>monitor</code>是插入到方法结束处和异常处，<code>JVM</code>要保证每个<code>monitorenter</code>必须有对应的<code>monitorexit</code>与之配对。任何对象都有一个monitor与之关联，当且一个<code>monitor</code>被持有后，它将处于锁定状态。线程执行到<code>monitorenter</code>指令时，将会尝试获取对象所对应的monitor的所有权，即尝试获得对象的锁</p>
+<br>
+
+<h3 id="synchronized的优化"><a href="#synchronized的优化" class="headerlink" title="synchronized的优化"></a>synchronized的优化</h3><p>synchronized锁一共有4种状态，级别从低到高依次是：无锁状态、偏向锁状态、轻量级锁状态和重量级锁状态，其中锁只能升级不能降级，目的是为了提高获得锁和释放锁的效率。</p>
+<br>
+
+<p><strong>偏向锁加锁</strong></p>
+<p>当一个线程访问同步块并获取锁时，会在对象头和栈帧中的锁记录里存储偏向的线程ID，后续该线程在进入和退出同步块时不需要进行<code>CAS</code>操作来加锁和解锁，只需要简单地测试一下对象头的<code>Mark Word</code>里是否存储着指向当前线程的偏向锁。若测试成功，表示线程已经获得锁。如果测试失败，则需要再测试一下<code>Mark Word</code>中偏向锁的标识是否设置成1（表示当前是偏向锁）；若没有设置，则使用<code>CAS</code>竞争锁；若设置了，则尝试使用<code>CAS</code>将对象头的偏向锁指向当前线程。</p>
+<p><strong>偏向锁的撤销</strong></p>
+<p>偏向锁使用了一种等到竞争出现才释放锁的机制，所以当其他线程尝试竞争偏向锁时，持有偏向锁的线程才会释放锁。它会首先暂停拥有偏向锁的线程，然后检查持有偏向锁的线程是否活着，如果线程不处于活动状态，则将对象头设置成无锁状态；如果线程仍然活着，拥有偏向锁的栈会被执行，遍历偏向对象的锁记录，栈中的锁记录和对象头的Mark Word要么重新偏向于其他线程，要么恢复到无锁或者标记对象不适合作为偏向锁，最后唤醒暂停的线程。</p>
+<p><img src="/2019/09/13/java并发（二）/1.png" alt></p>
+<br>
+
+<p><strong>轻量级锁加锁</strong></p>
+<p>线程在执行同步块之前，JVM会先在当前线程的栈帧中创建用于存储锁记录的空间，并将对象头中的Mark Word复制到锁记录中，然后线程尝试使用CAS将对象头中的Mark Word替换为指向锁记录的指针。若成功，当前线程获得锁，若失败，表示其他线程竞争锁，当前线程便尝试使用自旋来获取锁。</p>
+<p><strong>轻量级锁解锁</strong></p>
+<p>轻量级锁解锁时，会使用原子的CAS操作将Displaced Mark Word替换回到对象头，如果成功，则表示没有竞争发生。若失败，表示当前锁存在竞争，锁会膨胀成重量级锁。</p>
+<p><img src="/2019/09/13/java并发（二）/2.png" alt></p>
+<p>因为自旋会消耗CPU，为了避免无用的自旋，一旦锁升级成重量级锁，就不会再恢复到轻量级锁状态。当锁处于这个状态下，其他线程试图获取锁时，都会被阻塞，当持有锁的线程释放锁之后会唤醒这些线程，被唤醒的线程就会新一轮的竞争。</p>
+<br>
+
+<p><strong>锁间的对比</strong></p>
+<table>
+<thead>
+<tr>
+<th>锁</th>
+<th>优点</th>
+<th>缺点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>偏向锁</td>
+<td>加锁和解锁不需要额外的消耗，和执行非同步方法相比仅存在纳秒级的差距</td>
+<td>如果线程间存在锁竞争，会带来额外的锁撤销的消耗</td>
+<td>适用于只有一个线程访问同步块场景</td>
+</tr>
+<tr>
+<td>轻量级锁</td>
+<td>竞争的线程不会阻塞，提高了程序的响应速度</td>
+<td>如果始终得不到锁竞争的线程，使用自旋会消耗CPU</td>
+<td>追求响应时间，同步块执行速度妇非常快</td>
+</tr>
+<tr>
+<td>重量级锁</td>
+<td>线程竞争不使用自旋，不会消耗CPU</td>
+<td>线程阻塞，响应时间缓慢</td>
+<td>追求吞吐量，同步块执行速度较长</td>
+</tr>
+</tbody></table>
+<br>
+
+<h3 id="原子操作"><a href="#原子操作" class="headerlink" title="原子操作"></a>原子操作</h3><p>原子操作意为不可被中断的一个或一系列操作</p>
+<br>
+
+<p><strong>处理器实现原子操作</strong></p>
+<p>1）使用总线锁保证原子性</p>
+<p>第一个机制是通过总线锁保证原子性。若多个处理器同时对共享变量进行读改写操作（i++就是经典的读改写操作），那么共享变量就会被多个处理器同时进行操作，这样读改写操作就不是原子的，操作完之后共享变量的值会和期望的不一致。总线锁就是使用处理器提供的一个lock信号，当一个处理器在总线上输出此信号时，其他处理器的请求将会被阻塞住，那么该处理器可以独占共享内存。</p>
+<p>2）使用缓存锁保证原子性</p>
+<p>第二个机制是通过缓存锁来保证原子性。总线锁定把CPU和内存之间的通信锁住了，这使得锁定期间，其他处理器不能操作其他内存地址的数据，所以总线锁定的开销比较大。</p>
+<p>“缓存锁定”是指内存区域如果被缓存在处理器的缓存行中，并且在lock操作期间被锁定，那么当它执行锁操作回写到内存时，处理器不在总线上声言lock信号，而是修改内部的内存地址，并允许它的缓存一致性机制来保证操作的原子性，因为缓存一致性机制会阻止同时修改由两个以上处理器缓存的内存区域数据，当其他处理器回写已被锁定的缓存行的数据时，会使缓存行无效。</p>
+<br>
+
+<p><strong>java原子操作</strong></p>
+<p>1）通过循环CAS实现原子操作</p>
+<p>JVM中的CAS操作正是利用了处理器提供的CMPXCHG实现的。自旋CAS实现的基本思路就是循环进行CAS操作直到成功为止。</p>
+<p>JDK的并发包里提供了一些类来支持原子操作，如AtomicBoolean（用原子方式更新boolean值）、AtomicInteger（用原子方式更新的int值）和AtomicLong（用原子方式更新的long值）。这些原子包装类还提供了有用的工具方法，比如以原子的方式将当前值自增1和自减1.</p>
+<p>注：CAS实现原子操作的三大问题</p>
+<p><u>ABA问题</u></p>
+<p>CAS需要在操作值的时候，检测值有没有发生变化，若无变化则更新，但是如果一个值原来是A，变成B，然后再变成A，那么用CAS检测时会发现它的值没有变化，但实际上变化了多次。</p>
+<p>解决方法：使用版本号。在变量前追加版本号，每次变化时把版本号+1</p>
+<p><u>循环时间长开销大</u></p>
+<p>自旋CAS若长时间失败，会给CPU带来非常大的执行开销</p>
+<p><u>只能保证一个共享变量的原子操作</u></p>
+<p>当对一个共享变量执行操作时，我们可以使用循环CAS的方式来保证原子操作，但对多个共享变量操作时，循环CAS无法保证操作的原子性，这时可以使用锁。</p>
+<br>
+
+<p>2）使用锁机制实现原子操作</p>
+<p>锁机制保证了只有获得锁的线程才能够操作锁定的内存区域。JVM内部实现了很多种锁机制，偏向锁、轻量级锁和互斥锁。除了偏向锁，JVM实现锁的方式都使用了循环CAS，即当一个线程想进入同步块的时候使用循环CAS的方式来获取锁，当退出同步块时使用循环CAS释放锁。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/mystyle/img/zhifubaopay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/mystyle/img/wechatpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">情感</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/13/java并发（二）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/09/10/2019-9-10情感路线/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2019/9/10情感路线</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-number">1.</span> <span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-number">2.</span> <span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized的优化"><span class="toc-number">3.</span> <span class="toc-text">synchronized的优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原子操作"><span class="toc-number">4.</span> <span class="toc-text">原子操作</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -222,9 +470,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
