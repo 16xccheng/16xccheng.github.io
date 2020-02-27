@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>资源分享 | 未来~可期</title>
+  <title>未来~可期</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 自己使用的一些相关的有用资源">
-<meta name="keywords" content="资源">
+  <meta name="description" content="title: vi编辑器使用date: 2020-02-26 09:10:48tags: Linux 前言 接触Linux系统的编辑器 —— vi编辑器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="资源分享">
-<meta property="og:url" content="http://yoursite.com/2019/09/15/资源分享/index.html">
+<meta property="og:title" content="未来~可期">
+<meta property="og:url" content="http://yoursite.com/2020/02/26/vi编辑器使用/index.html">
 <meta property="og:site_name" content="未来~可期">
-<meta property="og:description" content="前言 自己使用的一些相关的有用资源">
+<meta property="og:description" content="title: vi编辑器使用date: 2020-02-26 09:10:48tags: Linux 前言 接触Linux系统的编辑器 —— vi编辑器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T06:45:41.631Z">
+<meta property="og:updated_time" content="2020-02-27T02:22:33.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="资源分享">
-<meta name="twitter:description" content="前言 自己使用的一些相关的有用资源">
+<meta name="twitter:title" content="未来~可期">
+<meta name="twitter:description" content="title: vi编辑器使用date: 2020-02-26 09:10:48tags: Linux 前言 接触Linux系统的编辑器 —— vi编辑器">
   
     <link rel="alternative" href="/atom.xml" title="未来~可期" type="application/atom+xml">
   
@@ -147,53 +146,396 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-资源分享" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vi编辑器使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      资源分享
-    </h1>
-  
-
-        
-        <a href="/2019/09/15/资源分享/" class="archive-article-date">
-  	<time datetime="2019-09-15T06:18:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>前言</strong></p>
-<p>自己使用的一些相关的有用资源</p>
+        <p>title: vi编辑器使用<br>date: 2020-02-26 09:10:48<br>tags: Linux</p>
+<p><strong>前言</strong></p>
+<p>接触Linux系统的编辑器 —— vi编辑器</p>
 <a id="more"></a>
 
-<br>
-
-<h1 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h1><h4 id="Navicat-Premium-12免安装（兼容多种数据并拥有库图形化界面，仅供学习使用）"><a href="#Navicat-Premium-12免安装（兼容多种数据并拥有库图形化界面，仅供学习使用）" class="headerlink" title="Navicat Premium 12免安装（兼容多种数据并拥有库图形化界面，仅供学习使用）"></a>Navicat Premium 12免安装（兼容多种数据并拥有库图形化界面，仅供学习使用）</h4><p>链接: <code>https://pan.baidu.com/s/1FWq7kL1R7c-2aFZw3kxGiw</code> </p>
-<p>提取码: <code>k7yj</code> </p>
-<br>
-
-<h4 id="XManager-5（连接远程服务器专用，下载解压即可，安装前需要先装几个微软的插件）"><a href="#XManager-5（连接远程服务器专用，下载解压即可，安装前需要先装几个微软的插件）" class="headerlink" title="XManager 5（连接远程服务器专用，下载解压即可，安装前需要先装几个微软的插件）"></a>XManager 5（连接远程服务器专用，下载解压即可，安装前需要先装几个微软的插件）</h4><p>链接: <code>https://pan.baidu.com/s/1-UZhZKzn4g20zhkP7hZ_ng</code> </p>
-<p>提取码: <code>gxg8</code></p>
-<br>
+<h3 id="启动-vi-编辑器"><a href="#启动-vi-编辑器" class="headerlink" title="启动 vi 编辑器"></a>启动 vi 编辑器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 例如vi testfile，若当前路径没有该文件，则自动创建，未编辑退出后文件消失；文件存在时打开文件；filename可为绝对路径或相对路径</span></span><br><span class="line">vi filename </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 以只读方式打开某个文件，使用插入i操作会出现警告</span></span><br><span class="line">vi -R filename</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 以只读方式打开某个文件，使用插入i操作会出现警告</span></span><br><span class="line">view filename</span><br></pre></td></tr></table></figure>
 
 <br>
 
-<h1 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h1><h4 id="深入理解java虚拟机（周志明）"><a href="#深入理解java虚拟机（周志明）" class="headerlink" title="深入理解java虚拟机（周志明）"></a>深入理解java虚拟机（周志明）</h4><p>链接: <code>https://pan.baidu.com/s/1f53lDXLOBxnk9UQhMXIvkw</code> </p>
-<p>提取码: <code>8n8x</code></p>
+<h3 id="模式选择"><a href="#模式选择" class="headerlink" title="模式选择"></a>模式选择</h3><p>1.<strong>指令模式</strong>：使用 vi 编辑器编辑时默认进入指令模式，在插入模式下可使用<code>ESC</code>键（最好按两次）切换至指令模式，可以通过使用对应指令进行操作，例如保存文件、执行指令、移动光标、剪切或粘贴、查找或替换</p>
+<p>2.<strong>插入模式</strong>：在指令模式下输入 <code>i</code> 键切换插入模式，此时可进行文件编辑</p>
 <br>
 
-<h4 id="Java并发编程的艺术"><a href="#Java并发编程的艺术" class="headerlink" title="Java并发编程的艺术"></a>Java并发编程的艺术</h4><p>链接: <code>https://pan.baidu.com/s/100YcrdFSzsPQUL0okqv_2w</code> </p>
-<p>提取码: <code>9hrq</code></p>
-<br>
+<h3 id="退出vi编辑器"><a href="#退出vi编辑器" class="headerlink" title="退出vi编辑器"></a>退出vi编辑器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 文档未修改，可直接退出，文档修改过但未保存，会出现提示</span></span><br><span class="line">:q</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 文档修改，可直接退出，即不保存修改</span></span><br><span class="line">:q!</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 文档保存</span></span><br><span class="line">:w</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 文档另存为，filename为新文件名</span></span><br><span class="line">:w filename</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 文档保存并退出，结合w(保存)和q(退出)</span></span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
 
 <br>
 
-<p>——未完待续</p>
+<h3 id="文件内移动光标（指令模式下）"><a href="#文件内移动光标（指令模式下）" class="headerlink" title="文件内移动光标（指令模式下）"></a>文件内移动光标（指令模式下）</h3><p>在指令模式下，直接使用下列指令移动光标</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>k 或 方向键↑</td>
+<td>光标向上移动一行</td>
+</tr>
+<tr>
+<td>j 或 方向键↓</td>
+<td>光标向下移动一行</td>
+</tr>
+<tr>
+<td>h 或 方向键←</td>
+<td>光标向左移动一个字符</td>
+</tr>
+<tr>
+<td>l 或 方向键→</td>
+<td>光标向右移动一个字符</td>
+</tr>
+</tbody></table>
+<p>注：字母键kjhl必须为小写，另外在指令前可加数字，例如指令模式下输入2k为向上移动两行，其他同理</p>
+<p>其他方法（区分大小写）：</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0 (零)或 |(或)</td>
+<td>光标回到当前行首</td>
+</tr>
+<tr>
+<td>$</td>
+<td>光标回到当前行尾</td>
+</tr>
+<tr>
+<td>w</td>
+<td>光标移动到下一个单词开头</td>
+</tr>
+<tr>
+<td>b</td>
+<td>光标移动到上一个单词开头</td>
+</tr>
+<tr>
+<td>(</td>
+<td>光标移动到当前段落开头（空行分隔段落）</td>
+</tr>
+<tr>
+<td>)</td>
+<td>光标移动到下个段落开头（空行分隔段落）</td>
+</tr>
+<tr>
+<td>E</td>
+<td>光标移动到下个空格或换行前</td>
+</tr>
+<tr>
+<td>{</td>
+<td>光标向后移动一段（空行分隔段落）</td>
+</tr>
+<tr>
+<td>}</td>
+<td>光标向后移动一前（空行分隔段落）</td>
+</tr>
+<tr>
+<td>[[</td>
+<td>光标往后移动一节</td>
+</tr>
+<tr>
+<td>]]</td>
+<td>光标往前移动一节</td>
+</tr>
+<tr>
+<td>n|</td>
+<td>光标移动到当前行的n列</td>
+</tr>
+<tr>
+<td>G</td>
+<td>光标移动到文件的最后一行</td>
+</tr>
+<tr>
+<td>nG 或 :n</td>
+<td>光标移动到文件的第n行</td>
+</tr>
+<tr>
+<td>H</td>
+<td>光标移动到当前屏幕的首部</td>
+</tr>
+<tr>
+<td>nH</td>
+<td>光标移动到当前屏幕从顶部查第n行</td>
+</tr>
+<tr>
+<td>M</td>
+<td>光标移动到当前屏幕中间</td>
+</tr>
+<tr>
+<td>L</td>
+<td>光标移动到当前屏幕底部</td>
+</tr>
+<tr>
+<td>nL</td>
+<td>光标移动到当前屏幕底部往上第n行</td>
+</tr>
+</tbody></table>
+<br>
+
+<h3 id="屏幕相关指令（指令模式下）"><a href="#屏幕相关指令（指令模式下）" class="headerlink" title="屏幕相关指令（指令模式下）"></a>屏幕相关指令（指令模式下）</h3><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ctrl+d</td>
+<td>向前移动半个屏幕</td>
+</tr>
+<tr>
+<td>ctrl+f</td>
+<td>向前移动整个屏幕</td>
+</tr>
+<tr>
+<td>ctrl+u</td>
+<td>向后移动半个屏幕</td>
+</tr>
+<tr>
+<td>ctrl+b</td>
+<td>向后移动整个屏幕</td>
+</tr>
+<tr>
+<td>ctrl+e</td>
+<td>屏幕向上移动一行</td>
+</tr>
+<tr>
+<td>ctrl+y</td>
+<td>屏幕向下移动一行</td>
+</tr>
+<tr>
+<td>ctrl+l (小写的L)</td>
+<td>刷新当前屏幕，不会移动</td>
+</tr>
+</tbody></table>
+<br>
+
+<h3 id="编辑文件（指令模式）"><a href="#编辑文件（指令模式）" class="headerlink" title="编辑文件（指令模式）"></a>编辑文件（指令模式）</h3><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i</td>
+<td>在当前光标位置前插入文本</td>
+</tr>
+<tr>
+<td>I (大写的i)</td>
+<td>在当前行首插入文本</td>
+</tr>
+<tr>
+<td>a</td>
+<td>在当前光标位置后插入文本</td>
+</tr>
+<tr>
+<td>A</td>
+<td>在当前行末插入文本</td>
+</tr>
+<tr>
+<td>o</td>
+<td>在光标位置下方新建一行输入文本</td>
+</tr>
+<tr>
+<td>O</td>
+<td>在光标位置上方新建一行输入文本</td>
+</tr>
+</tbody></table>
+<br>
+
+<h3 id="删除字符（指令模式）"><a href="#删除字符（指令模式）" class="headerlink" title="删除字符（指令模式）"></a>删除字符（指令模式）</h3><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x</td>
+<td>删除当前光标位置的字符，加n可表示执行次数</td>
+</tr>
+<tr>
+<td>X</td>
+<td>删除当前光标位置前的字符</td>
+</tr>
+<tr>
+<td>dw</td>
+<td>删除光标位置到下一字间的所有字符，截取单词</td>
+</tr>
+<tr>
+<td>d^</td>
+<td>删除光标位置到行首间的所有字符</td>
+</tr>
+<tr>
+<td>d$ 或D</td>
+<td>删除光标位置到行尾间的所有字符</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>删除一整行，消失，加n可表示执行次数</td>
+</tr>
+</tbody></table>
+<br>
+
+<h3 id="更改指令（指令模式）"><a href="#更改指令（指令模式）" class="headerlink" title="更改指令（指令模式）"></a>更改指令（指令模式）</h3><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cc</td>
+<td>删除当前行，留下空行，进入插入模式</td>
+</tr>
+<tr>
+<td>cw</td>
+<td>删除光标位置到单词末尾间的字符，并进入插入模式</td>
+</tr>
+<tr>
+<td>r+字符*</td>
+<td>替换光标下的字符为字符*</td>
+</tr>
+<tr>
+<td>R</td>
+<td>进入REPLACE模式，可对光标处进行替换，直至ESC退出</td>
+</tr>
+<tr>
+<td>s</td>
+<td>替换光标下的字符，并进入插入模式</td>
+</tr>
+<tr>
+<td>S</td>
+<td>删除光标所在行，进入插入模式</td>
+</tr>
+</tbody></table>
+<br>
+
+<h3 id="复制和粘贴指令（指令模式）"><a href="#复制和粘贴指令（指令模式）" class="headerlink" title="复制和粘贴指令（指令模式）"></a>复制和粘贴指令（指令模式）</h3><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>yy</td>
+<td>复制当前行</td>
+</tr>
+<tr>
+<td>yw</td>
+<td>复制当前字</td>
+</tr>
+<tr>
+<td>p</td>
+<td>在光标后粘贴</td>
+</tr>
+<tr>
+<td>P</td>
+<td>在光标前粘贴</td>
+</tr>
+</tbody></table>
+<br>
+
+<h3 id="高级指令（指令模式）"><a href="#高级指令（指令模式）" class="headerlink" title="高级指令（指令模式）"></a>高级指令（指令模式）</h3><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nJ</td>
+<td>当前行与下n行连接，接在末尾，空格分隔，J、1J、2J相同</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>当前行往左跳一个tab</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>当前行往右跳一个tab</td>
+</tr>
+<tr>
+<td>~</td>
+<td>当前光标下字符大小写转换，若有大小写</td>
+</tr>
+<tr>
+<td>U</td>
+<td>撤回上一个操作，再次使用可以还原</td>
+</tr>
+<tr>
+<td>u</td>
+<td>撤回上一个操作，可以持续撤回</td>
+</tr>
+<tr>
+<td>:f</td>
+<td>编辑器下方显示文件名、当前光标行数、列数文件进度</td>
+</tr>
+<tr>
+<td>:f filename</td>
+<td>重命名文件到filename</td>
+</tr>
+<tr>
+<td>:e filename</td>
+<td>打开filename文件，打开前文件需先保存</td>
+</tr>
+<tr>
+<td>:cd dirname</td>
+<td>切换到当前目录到dirname</td>
+</tr>
+<tr>
+<td>:e #</td>
+<td>在两个已打开的文件间切换，可配合:e filename使用</td>
+</tr>
+<tr>
+<td>:r filename</td>
+<td>读取文件filename，然后在当前行后进入插入</td>
+</tr>
+<tr>
+<td>:nr filename</td>
+<td>读取文件filename，然后在当前行n行后进入插入：</td>
+</tr>
+</tbody></table>
+<br>
+
+<h3 id="搜索（指令模式）"><a href="#搜索（指令模式）" class="headerlink" title="搜索（指令模式）"></a>搜索（指令模式）</h3><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/</td>
+<td>从上往下搜索</td>
+</tr>
+<tr>
+<td>?</td>
+<td>从下往上搜索</td>
+</tr>
+</tbody></table>
+<p>注：搜索指令 / 或 ？后可以接正则表达式</p>
+<br>
+
+<h3 id="运行指令集（指令模式）"><a href="#运行指令集（指令模式）" class="headerlink" title="运行指令集（指令模式）"></a>运行指令集（指令模式）</h3><p>vi编辑器可支持指令集。可再指令模式下先输入 <code>:!</code> 前缀，后接其他linux系统的指令，例如 <code>:! ls</code>，意味着先跳出vi 编辑器执行<code>ls</code>操作，然后按任意键返回vi编辑器</p>
+<br>
+
+<h3 id="文本替换（指令模式）"><a href="#文本替换（指令模式）" class="headerlink" title="文本替换（指令模式）"></a>文本替换（指令模式）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 该指令的意思是出现在光标所在行的第一个匹配字符会被替换</span></span><br><span class="line">:s/被替换文字/替换文字</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> g代表全局。该指令的意思是出现在光标所在行的所有匹配字符都会被替换</span></span><br><span class="line">:s/被替换文字/替换文字/g</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="小贴士"><a href="#小贴士" class="headerlink" title="小贴士"></a>小贴士</h3><p>在使用 <code>:</code> 或者 <code>/</code> 或者 <code>？</code>时，在文件未退出编辑前，可以使用<code>↑↓</code>方向键进行近期指令选择</p>
 
       
 
@@ -233,17 +575,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">资源</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -294,7 +625,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/15/资源分享/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/26/vi编辑器使用/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -308,18 +639,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/16/TCP之连接琐事/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          TCP之连接琐事
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/13/java并发（二）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java并发（二）</div>
+    <a href="/2019/12/19/秋招之路/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">秋招之路</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -346,7 +668,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#软件"><span class="toc-number">1.</span> <span class="toc-text">软件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Navicat-Premium-12免安装（兼容多种数据并拥有库图形化界面，仅供学习使用）"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Navicat Premium 12免安装（兼容多种数据并拥有库图形化界面，仅供学习使用）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XManager-5（连接远程服务器专用，下载解压即可，安装前需要先装几个微软的插件）"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">XManager 5（连接远程服务器专用，下载解压即可，安装前需要先装几个微软的插件）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#书籍"><span class="toc-number">2.</span> <span class="toc-text">书籍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#深入理解java虚拟机（周志明）"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">深入理解java虚拟机（周志明）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java并发编程的艺术"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">Java并发编程的艺术</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动-vi-编辑器"><span class="toc-number">1.</span> <span class="toc-text">启动 vi 编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模式选择"><span class="toc-number">2.</span> <span class="toc-text">模式选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#退出vi编辑器"><span class="toc-number">3.</span> <span class="toc-text">退出vi编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件内移动光标（指令模式下）"><span class="toc-number">4.</span> <span class="toc-text">文件内移动光标（指令模式下）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#屏幕相关指令（指令模式下）"><span class="toc-number">5.</span> <span class="toc-text">屏幕相关指令（指令模式下）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑文件（指令模式）"><span class="toc-number">6.</span> <span class="toc-text">编辑文件（指令模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除字符（指令模式）"><span class="toc-number">7.</span> <span class="toc-text">删除字符（指令模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更改指令（指令模式）"><span class="toc-number">8.</span> <span class="toc-text">更改指令（指令模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制和粘贴指令（指令模式）"><span class="toc-number">9.</span> <span class="toc-text">复制和粘贴指令（指令模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级指令（指令模式）"><span class="toc-number">10.</span> <span class="toc-text">高级指令（指令模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索（指令模式）"><span class="toc-number">11.</span> <span class="toc-text">搜索（指令模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行指令集（指令模式）"><span class="toc-number">12.</span> <span class="toc-text">运行指令集（指令模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本替换（指令模式）"><span class="toc-number">13.</span> <span class="toc-text">文本替换（指令模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小贴士"><span class="toc-number">14.</span> <span class="toc-text">小贴士</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -401,7 +723,7 @@ if(false){
   	repo: '16xccheng.github.io',
   	owner: '',
   	admin: [''],
-  	id: 'Sun Sep 15 2019 14:18:25 GMT+0800',
+  	id: 'Wed Feb 26 2020 09:10:48 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
