@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>资源分享 | 未来~可期</title>
+  <title>Apache+CGI搭建简易服务器 | 未来~可期</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 自己使用的一些相关的有用资源">
-<meta name="keywords" content="资源">
+  <meta name="description" content="前言 Apache+CGI可以通过配置完成简单的服务器，且不需要使用任何框架，且CGI支持C，C++，python等多种语言编写。">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="资源分享">
-<meta property="og:url" content="http://yoursite.com/2019/09/15/资源分享/index.html">
+<meta property="og:title" content="Apache+CGI搭建简易服务器">
+<meta property="og:url" content="http://yoursite.com/2020/03/07/Apache-CGI搭建简易服务器/index.html">
 <meta property="og:site_name" content="未来~可期">
-<meta property="og:description" content="前言 自己使用的一些相关的有用资源">
+<meta property="og:description" content="前言 Apache+CGI可以通过配置完成简单的服务器，且不需要使用任何框架，且CGI支持C，C++，python等多种语言编写。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T06:45:41.631Z">
+<meta property="og:updated_time" content="2020-03-07T06:06:36.803Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="资源分享">
-<meta name="twitter:description" content="前言 自己使用的一些相关的有用资源">
+<meta name="twitter:title" content="Apache+CGI搭建简易服务器">
+<meta name="twitter:description" content="前言 Apache+CGI可以通过配置完成简单的服务器，且不需要使用任何框架，且CGI支持C，C++，python等多种语言编写。">
   
     <link rel="alternative" href="/atom.xml" title="未来~可期" type="application/atom+xml">
   
@@ -147,20 +147,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-资源分享" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Apache-CGI搭建简易服务器" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      资源分享
+      Apache+CGI搭建简易服务器
     </h1>
   
 
         
-        <a href="/2019/09/15/资源分享/" class="archive-article-date">
-  	<time datetime="2019-09-15T06:18:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+        <a href="/2020/03/07/Apache-CGI搭建简易服务器/" class="archive-article-date">
+  	<time datetime="2020-03-07T01:48:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
 </a>
         
       </header>
@@ -168,32 +168,46 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>前言</strong></p>
-<p>自己使用的一些相关的有用资源</p>
+<p>Apache+CGI可以通过配置完成简单的服务器，且不需要使用任何框架，且CGI支持C，C++，python等多种语言编写。</p>
 <a id="more"></a>
 
-<br>
+<h3 id="Apache下载"><a href="#Apache下载" class="headerlink" title="Apache下载"></a>Apache下载</h3><br>
 
-<h1 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h1><h4 id="Navicat-Premium-12免安装（兼容多种数据并拥有库图形化界面，仅供学习使用）"><a href="#Navicat-Premium-12免安装（兼容多种数据并拥有库图形化界面，仅供学习使用）" class="headerlink" title="Navicat Premium 12免安装（兼容多种数据并拥有库图形化界面，仅供学习使用）"></a>Navicat Premium 12免安装（兼容多种数据并拥有库图形化界面，仅供学习使用）</h4><p>链接: <code>https://pan.baidu.com/s/1FWq7kL1R7c-2aFZw3kxGiw</code> </p>
-<p>提取码: <code>k7yj</code> </p>
-<br>
-
-<h4 id="XManager-5（连接远程服务器专用，下载解压即可，安装前需要先装几个微软的插件）"><a href="#XManager-5（连接远程服务器专用，下载解压即可，安装前需要先装几个微软的插件）" class="headerlink" title="XManager 5（连接远程服务器专用，下载解压即可，安装前需要先装几个微软的插件）"></a>XManager 5（连接远程服务器专用，下载解压即可，安装前需要先装几个微软的插件）</h4><p>链接: <code>https://pan.baidu.com/s/1-UZhZKzn4g20zhkP7hZ_ng</code> </p>
-<p>提取码: <code>gxg8</code></p>
-<br>
+<h3 id="Apache配置–httpd-conf"><a href="#Apache配置–httpd-conf" class="headerlink" title="Apache配置–httpd.conf"></a>Apache配置–httpd.conf</h3><p>在apache的安装目录中，子目录<code>conf</code>，apache需要通过修改httpd.conf来配合cgi程序。</p>
+<p><strong>apache2.2</strong>与<strong>apache2.4</strong>的配置间存在差异，笔者使用的是<strong>apache2.4</strong></p>
+<p><strong>1.设置cgi程序文件路径</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在httpd.conf中查找一下关键词 ScriptAlias /cgi-bin/</span></span><br><span class="line">ScriptAlias /cgi-bin/ "文件路径"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改文件路径</span></span><br><span class="line">ScriptAlias /cgi-bin/ "你cgi程序存放的文件夹"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 例如(文件夹末尾)</span></span><br><span class="line">ScriptAlias /cgi-bin/ "/home/cheng/my-cgi-file/"</span><br></pre></td></tr></table></figure>
 
 <br>
 
-<h1 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h1><h4 id="深入理解java虚拟机（周志明）"><a href="#深入理解java虚拟机（周志明）" class="headerlink" title="深入理解java虚拟机（周志明）"></a>深入理解java虚拟机（周志明）</h4><p>链接: <code>https://pan.baidu.com/s/1f53lDXLOBxnk9UQhMXIvkw</code> </p>
-<p>提取码: <code>8n8x</code></p>
-<br>
-
-<h4 id="Java并发编程的艺术"><a href="#Java并发编程的艺术" class="headerlink" title="Java并发编程的艺术"></a>Java并发编程的艺术</h4><p>链接: <code>https://pan.baidu.com/s/100YcrdFSzsPQUL0okqv_2w</code> </p>
-<p>提取码: <code>9hrq</code></p>
-<br>
+<p><strong>2.设置cgi路径的服务权限</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查找关键词 CGI directory exists, <span class="keyword">if</span> you have that configured</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下方存在一个directory</span></span><br><span class="line">&lt;Directory /&gt;</span><br><span class="line">    AllowOverride none</span><br><span class="line">    Require all denied</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改directory的内容</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> directory后接cgi程序存放的文件夹路径</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Options Indexes FollowSymLinks ExecCGI是支持通过cgi路径映射，该目录允许执行cgi</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Require all granted 和 Require host ip 是设置开放权限访问</span></span><br><span class="line">&lt;Directory "/home/cheng/my-cgi-file/"&gt;</span><br><span class="line">    AllowOverride None</span><br><span class="line">    Options Indexes FollowSymLinks ExecCGI</span><br><span class="line">    Require all granted </span><br><span class="line">    Require host ip</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
 
 <br>
 
-<p>——未完待续</p>
+<p><strong>3.设置可支持访问的cgi程序的类型</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查找关键词 AddHandler cgi-script</span></span><br><span class="line"><span class="meta">#</span><span class="bash">AddHandler cgi-script .cgi</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改语句，去掉<span class="comment">#号注释</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注：cgi程序可由多种语言编写Python(.py),Perl(.pl),PHP(.php),C(可编译为.cgi程序)</span></span><br><span class="line">AddHandler cgi-script .cgi .py .pl .php</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>4.设置apache映射端口</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查找关键词 Listen</span></span><br><span class="line">Listen 80</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改映射端口</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注：服务器上端口可能被其他程序占用，nginx等，所以防止冲突，可以自定义一个端口，后续访问时在链接上添加即可，系统防火墙也要开放对应端口</span></span><br><span class="line">Listen 自定义端口</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>5.配置完毕后重启apache服务器使httpd.conf生效</strong></p>
+<br>
+
+<br>
+
+<h3 id="编写cgi程序"><a href="#编写cgi程序" class="headerlink" title="编写cgi程序"></a>编写cgi程序</h3><p>在cgi程序存放位置创建程序，笔者使用python3进行测试–HelloWord.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"Content-type:text/html"</span>)</span><br><span class="line">print(<span class="string">""</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"&lt;html&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;head&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;meta charset = \"utf-8\" /&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;title&gt;HelloWord&lt;/title&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;/head&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;body&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;h2&gt;Hello World&lt;/h2&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;/body&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;/html&gt;"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在cgi文件中，内容主要是打印html代码。值得注意的是，python程序第一行和第二行为打印<code>Content-type:text/htm</code>和打印一个空行，第一行是协议类型，第二行是协议结尾，由于协议类型的特殊性，打印时需要添加两个换行，print语句自带换行，其他语言可能需要使用 <code>\n\n</code> 来进行换行，否则会报错<code>Internal Server Error</code>.</p>
+<p>编写保存cgi程序完毕后需要为程序设置权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 cgi程序</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试服务器"><a href="#测试服务器" class="headerlink" title="测试服务器"></a>测试服务器</h3><p>在浏览器访问 <code>服务器:端口/cgi-bin/HelloWord.py</code> 就可以看到Hello Word了</p>
 
       
 
@@ -238,7 +252,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">资源</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -294,7 +308,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/15/资源分享/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/07/Apache-CGI搭建简易服务器/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -308,18 +322,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/16/TCP之连接琐事/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          TCP之连接琐事
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/13/java并发（二）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java并发（二）</div>
+    <a href="/2020/02/28/Git的使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git的使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -346,7 +351,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#软件"><span class="toc-number">1.</span> <span class="toc-text">软件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Navicat-Premium-12免安装（兼容多种数据并拥有库图形化界面，仅供学习使用）"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Navicat Premium 12免安装（兼容多种数据并拥有库图形化界面，仅供学习使用）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XManager-5（连接远程服务器专用，下载解压即可，安装前需要先装几个微软的插件）"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">XManager 5（连接远程服务器专用，下载解压即可，安装前需要先装几个微软的插件）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#书籍"><span class="toc-number">2.</span> <span class="toc-text">书籍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#深入理解java虚拟机（周志明）"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">深入理解java虚拟机（周志明）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java并发编程的艺术"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">Java并发编程的艺术</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Apache下载"><span class="toc-number">1.</span> <span class="toc-text">Apache下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Apache配置–httpd-conf"><span class="toc-number">2.</span> <span class="toc-text">Apache配置–httpd.conf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写cgi程序"><span class="toc-number">3.</span> <span class="toc-text">编写cgi程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试服务器"><span class="toc-number">4.</span> <span class="toc-text">测试服务器</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -401,7 +406,7 @@ if(false){
   	repo: '16xccheng.github.io',
   	owner: '',
   	admin: [''],
-  	id: 'Sun Sep 15 2019 14:18:25 GMT+0800',
+  	id: 'Sat Mar 07 2020 09:48:14 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
