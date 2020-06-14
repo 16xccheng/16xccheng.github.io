@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="未来~可期">
 <meta property="og:description" content="前言 Apache+CGI可以通过配置完成简单的服务器，且不需要使用任何框架，且CGI支持C，C++，python等多种语言编写。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-07T06:06:36.803Z">
+<meta property="og:updated_time" content="2020-03-08T03:45:46.482Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache+CGI搭建简易服务器">
 <meta name="twitter:description" content="前言 Apache+CGI可以通过配置完成简单的服务器，且不需要使用任何框架，且CGI支持C，C++，python等多种语言编写。">
@@ -200,14 +200,14 @@
 
 <br>
 
-<h3 id="编写cgi程序"><a href="#编写cgi程序" class="headerlink" title="编写cgi程序"></a>编写cgi程序</h3><p>在cgi程序存放位置创建程序，笔者使用python3进行测试–HelloWord.py</p>
+<h3 id="编写cgi程序"><a href="#编写cgi程序" class="headerlink" title="编写cgi程序"></a>编写cgi程序</h3><p>在cgi程序存放位置创建程序，笔者使用python3进行测试–HelloWorld.py</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"Content-type:text/html"</span>)</span><br><span class="line">print(<span class="string">""</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"&lt;html&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;head&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;meta charset = \"utf-8\" /&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;title&gt;HelloWord&lt;/title&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;/head&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;body&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;h2&gt;Hello World&lt;/h2&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;/body&gt;"</span>)</span><br><span class="line">print(<span class="string">"&lt;/html&gt;"</span>)</span><br></pre></td></tr></table></figure>
 
 <p>在cgi文件中，内容主要是打印html代码。值得注意的是，python程序第一行和第二行为打印<code>Content-type:text/htm</code>和打印一个空行，第一行是协议类型，第二行是协议结尾，由于协议类型的特殊性，打印时需要添加两个换行，print语句自带换行，其他语言可能需要使用 <code>\n\n</code> 来进行换行，否则会报错<code>Internal Server Error</code>.</p>
 <p>编写保存cgi程序完毕后需要为程序设置权限</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 cgi程序</span><br></pre></td></tr></table></figure>
 
-<h3 id="测试服务器"><a href="#测试服务器" class="headerlink" title="测试服务器"></a>测试服务器</h3><p>在浏览器访问 <code>服务器:端口/cgi-bin/HelloWord.py</code> 就可以看到Hello Word了</p>
+<h3 id="测试服务器"><a href="#测试服务器" class="headerlink" title="测试服务器"></a>测试服务器</h3><p>在浏览器访问 <code>服务器:端口/cgi-bin/HelloWorld.py</code> 就可以看到Hello World了</p>
 
       
 
@@ -321,6 +321,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/06/14/我的职业起点-网易互娱/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          我的职业起点--网易互娱
+        
+      </div>
+    </a>
   
   
     <a href="/2020/02/26/vi编辑器常用指令/" id="article-nav-older" class="article-nav-link-wrap">
@@ -490,7 +499,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,14 +520,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
